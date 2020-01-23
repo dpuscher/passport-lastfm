@@ -6,7 +6,7 @@ describe('Strategy', function() {
   describe('constructed', function() {
 
     var strategy = new LastFmStrategy({
-        callback_url:'http://localhost:8000',
+        callback_url:'https://localhost:8000',
         api_key: 'ABC123',
         secret: 'secret'
       },
@@ -27,7 +27,7 @@ describe('Strategy', function() {
 
   describe('authorization request', function() {
     var strategy = new LastFmStrategy({
-      callback_url:'http://localhost:8000',
+      callback_url:'https://localhost:8000',
       api_key: 'ABC123',
       secret: 'secret'
     }, function() {});
@@ -47,7 +47,7 @@ describe('Strategy', function() {
     });
 
     it('should be redirected to lastfm for auth', function() {
-      expect(url).to.equal('http://www.last.fm/api/auth?api_key=ABC123&cb=http://localhost:8000');
+      expect(url).to.equal('https://www.last.fm/api/auth?api_key=ABC123&cb=https://localhost:8000');
     });
   });
 
@@ -128,14 +128,14 @@ describe('Strategy', function() {
         .req(function(req) {
           req.query = {};
           req.query.error_code = '901';
-          req.query.error_message = 'This app is in sandbox mode.  Edit the app configuration at http://developers.facebook.com/apps to make the app publicly visible.';
+          req.query.error_message = 'This app is in sandbox mode.  Edit the app configuration at https://developers.facebook.com/apps to make the app publicly visible.';
         })
         .authenticate();
     });
 
     it('should error', function() {
       expect(err.constructor.name).to.equal('FacebookAuthorizationError');
-      expect(err.message).to.equal('This app is in sandbox mode.  Edit the app configuration at http://developers.facebook.com/apps to make the app publicly visible.');
+      expect(err.message).to.equal('This app is in sandbox mode.  Edit the app configuration at https://developers.facebook.com/apps to make the app publicly visible.');
       expect(err.code).to.equal(901);
       expect(err.status).to.equal(500);
     });

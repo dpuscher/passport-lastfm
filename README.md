@@ -1,5 +1,5 @@
 # passport-lastfm
-[![Build Status](https://travis-ci.org/kizzlebot/passport-lastfm.svg?branch=master)](https://travis-ci.org/kizzlebot/passport-lastfm)  
+[![Build Status](https://travis-ci.org/kizzlebot/passport-lastfm.svg?branch=master)](https://travis-ci.org/kizzlebot/passport-lastfm)
 Last.fm authentication strategy for Passport and Node.js.  Please contribute if you like!
 
 
@@ -10,7 +10,7 @@ Last.fm authentication strategy for Passport and Node.js.  Please contribute if 
 ---------
 `npm install passport-lastfm --save`
 
-create a `api_key` and `secret` by [registering your app](http://www.last.fm/api/account/create)
+create a `api_key` and `secret` by [registering your app](https://www.last.fm/api/account/create)
 
 
 
@@ -22,7 +22,7 @@ Set up passport strategies.  Be sure initialize with api_key and secret
 ```javascript
 var LastFMStrategy = require('passport-lastfm')
 var _ = require('lodash');
-var cb_url = 'http://localhost:8000';
+var cb_url = 'https://localhost:8000';
 
 passport.use(new LastFmStrategy({
   'api_key': process.env.LASTFM_KEY,
@@ -74,7 +74,3 @@ app.get('/auth/lastfm/callback', function(req, res, next){
 });
 
 ```
-
-
-
-
